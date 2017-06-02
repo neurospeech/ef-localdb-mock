@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>NeuroSpeech.EFLocalDBMock</id>
+    <version>$version$</version>
+    <title>EF LocalDB Mock</title>
+    <authors>NeuroSpeech</authors>
+    <owners>NeuroSpeech</owners>
+    <licenseUrl>https://github.com/neurospeech/ef-localdb-mock/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/neurospeech/ef-localdb-mock</projectUrl>
+    <!--<iconUrl>https://github.com/Redth/PushSharp/raw/master/Resources/PushSharp-Icon-NuGet-Small.png</iconUrl>-->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>LocalDB Mock for EF</description>
+    <summary>LocalDB Mock for EF</summary>
+    <releaseNotes>
+      
+    </releaseNotes>
+    <copyright>2012-2017 NeuroSpeech</copyright>
+    <language>en-US</language>
+    <tags>EF, LocalDB, Mock</tags>
+    <dependencies>
+      <dependency id="EntityFramework" version="6.1.3" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="EFLocalDBMock\EFLocalDBMock\bin\Debug\EFLocalDBMock.dll" target="lib\net45\EFLocalDBMock.dll" />
+    <file src="EFLocalDBMock\EFLocalDBMock\bin\Debug\EFLocalDBMock.pdb" target="lib\net45\EFLocalDBMock.pdb" />
+  </files>
+</package>

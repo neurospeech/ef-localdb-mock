@@ -3,6 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{77C86BB5-31BF-4B85-A239-422964824F84}"
+	ProjectSection(SolutionItems) = preProject
+		EFLocalDBMock.nuspec = EFLocalDBMock.nuspec
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFLocalDBMock", "EFLocalDBMock\EFLocalDBMock.csproj", "{02EEA847-31AB-4A58-975E-2C1F90BB510A}"
 EndProject
 Global
