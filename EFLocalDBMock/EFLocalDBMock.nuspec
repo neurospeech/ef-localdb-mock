@@ -23,7 +23,7 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="EFLocalDBMock\bin\Debug\EFLocalDBMock.dll" target="lib\net45\EFLocalDBMock.dll" />
-    <file src="EFLocalDBMock\bin\Debug\EFLocalDBMock.pdb" target="lib\net45\EFLocalDBMock.pdb" />
+    <file src="bin\Debug\EFLocalDBMock.dll" target="lib\net45\EFLocalDBMock.dll" />
+    <file src="bin\Debug\EFLocalDBMock.pdb" target="lib\net45\EFLocalDBMock.pdb" />
   </files>
 </package>
