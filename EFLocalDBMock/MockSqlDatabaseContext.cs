@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace NeuroSpeech.EFLocalDBMock
 {
@@ -51,15 +52,16 @@ namespace NeuroSpeech.EFLocalDBMock
 
             try
             {
-                foreach (var t in TempFiles)
+                foreach (var t in TempFiles.ToList())
                 {
                     var file = new System.IO.FileInfo(t);
                     if (file.Exists)
                     {
                         file.Delete();
                     }
+                    TempFiles.Remove(t);
                 }
-                TempFiles.Clear();
+                //TempFiles.Clear();
             }
             catch (Exception ex)
             {

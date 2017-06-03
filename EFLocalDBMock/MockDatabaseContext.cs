@@ -22,6 +22,12 @@ namespace NeuroSpeech.EFLocalDBMock
 
         protected List<string> TempFiles { get; } = new List<string>();
 
+        public string CreateTempFile() {
+            string tmp = Path.GetTempFileName();
+            TempFiles.Add(tmp);
+            return tmp;
+        }
+
         private StringWriter logger = new StringWriter();
 
         public virtual void WriteLine(string line) {
@@ -90,6 +96,12 @@ namespace NeuroSpeech.EFLocalDBMock
 
             if (!DoNotDelete) {
                 DeleteDatabase();
+            }
+
+            foreach (var temp in TempFiles)
+            {
+                if (System.IO.File.Exists(temp))
+                    System.IO.File.Delete(temp);
             }
 
         }
