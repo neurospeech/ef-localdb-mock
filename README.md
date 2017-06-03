@@ -1,5 +1,6 @@
-# ef-localdb-mock
-Entity Framework Mocking using SQL Server LocalDB
+# Entity Framework Mocking using SQL Server LocalDB
+
+[![Build status](https://ci.appveyor.com/api/projects/status/8tvn5h4ds06rfvaa?svg=true)](https://ci.appveyor.com/project/neurospeech/ef-localdb-mock)
 
 # NuGet
 
