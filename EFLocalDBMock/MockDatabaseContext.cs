@@ -88,7 +88,13 @@ namespace NeuroSpeech.EFLocalDBMock
             CallContext.FreeNamedDataSlot(ContextName);
             Contexts.TryRemove(guid, out MockDatabaseContext mv);
 
+            if (!DoNotDelete) {
+                DeleteDatabase();
+            }
+
         }
+
+        internal abstract void DeleteDatabase();
 
         protected virtual void DumpLogs()
         {

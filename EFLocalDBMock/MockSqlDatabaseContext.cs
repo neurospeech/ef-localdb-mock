@@ -39,6 +39,34 @@ namespace NeuroSpeech.EFLocalDBMock
 
         }
 
+        internal override void DeleteDatabase()
+        {
+            if (!string.IsNullOrWhiteSpace(DBName))
+            {
+                SqlHelper.Execute("USE master;");
+                SqlHelper.Execute($"ALTER DATABASE [{DBName}] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;");
+                SqlHelper.Execute($"DROP DATABASE [{DBName}]");
+                DBName = null;
+            }
+
+            try
+            {
+                foreach (var t in TempFiles)
+                {
+                    var file = new System.IO.FileInfo(t);
+                    if (file.Exists)
+                    {
+                        file.Delete();
+                    }
+                }
+                TempFiles.Clear();
+            }
+            catch (Exception ex)
+            {
+                WriteLine(ex.ToString());
+            }
+        }
+
         internal override void Initialize()
         {
 
