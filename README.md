@@ -20,6 +20,9 @@ Entity Framework Mocking using SQL Server LocalDB
 		// since databases are dynamically created and destroyed
 		// MockDatabaseContext.Current.ConnectionString contains 
 		// correct database for current test context
+		
+		// MockDatabaseContext.Current will work correctly with async await
+		// without worrying about passing context
 
 		public AppDbTestContext(): base(MockDatabaseContext.Current.ConnectionString)
 		{
