@@ -100,8 +100,14 @@ namespace NeuroSpeech.EFLocalDBMock
 
             foreach (var temp in TempFiles)
             {
-                if (System.IO.File.Exists(temp))
-                    System.IO.File.Delete(temp);
+                try
+                {
+                    if (System.IO.File.Exists(temp))
+                        System.IO.File.Delete(temp);
+                }
+                catch {
+                    // swallow.... 
+                }
             }
 
         }
