@@ -14,7 +14,7 @@ namespace NeuroSpeech.EFLocalDBMock
     /// 
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class OriginalDatabase<T>
+    public class OriginalSqlDatabase<T>
     where T : DbContext
     {
 
@@ -25,11 +25,12 @@ namespace NeuroSpeech.EFLocalDBMock
 
         public string DBName { get; set; }
 
-        public OriginalDatabase(bool create = false)
+        public OriginalSqlDatabase(Func<string> getVersion, bool create = false)
         {
+            
             if (create)
             {
-                CreateDb();
+                CreateDb(getVersion());
             }
             else
             {
@@ -46,9 +47,9 @@ namespace NeuroSpeech.EFLocalDBMock
             }
         }
 
-        private void CreateDb()
+        private void CreateDb(string version)
         {
-            var v = typeof(T).Assembly.GetName().Version.ToString().Replace(".", "_");
+            var v = version.Replace(".", "_");
             var n = typeof(T).FullName;
             TempPath = new System.IO.DirectoryInfo($"{Path.GetTempPath()}\\{n}");
             if (!TempPath.Exists)
@@ -136,22 +137,19 @@ namespace NeuroSpeech.EFLocalDBMock
             return sqlCnstr;
         }
 
-        private static OriginalDatabase<T> _Original = null;
+        private static OriginalSqlDatabase<T> _Original = null;
         private static object lockObject = new object();
-        public static OriginalDatabase<T> Instance
+        public static OriginalSqlDatabase<T> GetInstance(Func<string> getVersion)
         {
-            get
+            lock (lockObject)
             {
-                lock (lockObject)
+                if (_Original == null)
                 {
-                    if (_Original == null)
-                    {
-                        _Original = new OriginalDatabase<T>(true);
-                    }
+                    _Original = new OriginalSqlDatabase<T>(getVersion, true);
                 }
-                OriginalDatabase<T> od = new OriginalDatabase<T>();
-                return od;
             }
+            OriginalSqlDatabase<T> od = new OriginalSqlDatabase<T>(null);
+            return od;
         }
 
     }

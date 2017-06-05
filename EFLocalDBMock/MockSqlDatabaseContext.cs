@@ -89,7 +89,7 @@ namespace NeuroSpeech.EFLocalDBMock
 
 
 
-                var od = OriginalDatabase<TDbContext>.Instance;
+                var od = OriginalSqlDatabase<TDbContext>.GetInstance( () => Version);
 
                 TempFiles.Add(od.DbFile);
                 TempFiles.Add(od.LogFile);
