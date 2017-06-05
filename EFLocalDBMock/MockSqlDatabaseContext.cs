@@ -27,6 +27,11 @@ namespace NeuroSpeech.EFLocalDBMock
         
     {
 
+        public override string Version =>
+            typeof(TDbContext).BaseType == typeof(DbContext) ?
+            typeof(TDbContext).Assembly.GetName().Version.ToString() :
+            typeof(TDbContext).BaseType.Assembly.GetName().Version.ToString();
+
         protected override void OnBeforeInitialize()
         {
             try

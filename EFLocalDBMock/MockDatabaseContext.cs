@@ -20,6 +20,8 @@ namespace NeuroSpeech.EFLocalDBMock
 
         private const string ContextName = "MockDatabaseContext";
 
+        public virtual string Version => throw new NotImplementedException("Please implement Version property");
+
         protected List<string> TempFiles { get; } = new List<string>();
 
         public string CreateTempFile() {
