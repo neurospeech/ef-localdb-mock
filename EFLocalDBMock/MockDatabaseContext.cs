@@ -75,6 +75,8 @@ namespace NeuroSpeech.EFLocalDBMock
         public static MockDatabaseContext Current {
             get {
                 string guid = (string)CallContext.LogicalGetData(ContextName);
+                if (guid == null)
+                    return null;
                 if (Contexts.TryGetValue(guid, out MockDatabaseContext val))
                     return val;
                 return null;
