@@ -91,7 +91,7 @@ namespace NeuroSpeech.EFLocalDBMock
 
         private string guid = Guid.NewGuid().ToString();
 
-        public void Dispose()
+        public virtual void Dispose()
         {
             DumpLogs();
 
@@ -113,6 +113,8 @@ namespace NeuroSpeech.EFLocalDBMock
                     // swallow.... 
                 }
             }
+            
+            OnDisposed();
 
         }
 
