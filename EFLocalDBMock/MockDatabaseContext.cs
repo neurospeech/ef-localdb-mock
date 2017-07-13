@@ -113,9 +113,7 @@ namespace NeuroSpeech.EFLocalDBMock
                     // swallow.... 
                 }
             }
-            
-            OnDisposed();
-
+  
         }
 
         internal abstract void DeleteDatabase();
@@ -126,5 +124,7 @@ namespace NeuroSpeech.EFLocalDBMock
         }
 
         public string GeneratedLog => logger.GetStringBuilder().ToString();
+        
+        public Dictionary<string,object> Bag { get; } = new  Dictionary<string,object>();
     }
 }
